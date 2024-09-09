@@ -1,0 +1,33 @@
+## Redis configuration values
+
+# Redis image settings
+image:
+  repository: redis
+  tag: 7.0.0
+  pullPolicy: IfNotPresent
+
+# Replication settings
+replica:
+  replicaCount: 1
+
+# exporter
+exporter:
+  enabled: true
+
+# auth
+auth:
+  enabled: true
+
+# Service settings
+service:
+  type: ClusterIP
+  port: 6379
+  annotations: {}
+
+# Redis configuration settings
+redis:
+  config:
+    appendonly: "yes"
+    appendfsync: "everysec"
+    maxmemory: "2gb"
+    maxmemory-policy: "allkeys-lru"

@@ -1,0 +1,39 @@
+apiVersion: databases.spotahome.com/v1
+kind: RedisFailover
+metadata:
+  name: redisfailover-{{ .Release.Name }}
+  namespace: {{ include "chart.namespaceName" . }}
+spec:
+  {{- if .Values.auth.enabled }}
+  auth:
+    secretPath: {{ .Release.Name }}-secret
+  {{- end }}
+  sentinel:
+    replicas: {{ .Values.replica.replicaCount }}
+    {{- if .Values.exporter.enabled }}
+    exporter: 
+      enabled: {{ .Values.exporter.enabled }}
+    {{- end }}   
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    imagePullPolicy: {{ .Values.image.pullPolicy }}
+    resources:
+      requests:
+        cpu: 100m
+      limits:
+        memory: 100Mi
+  redis:
+    replicas: {{ .Values.replica.replicaCount }}
+    {{- if .Values.exporter.enabled }}
+    exporter: 
+      enabled: {{ .Values.exporter.enabled }}
+    {{- end }} 
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    imagePullPolicy: {{ .Values.image.pullPolicy }}
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 400m
+        memory: 500Mi
+
