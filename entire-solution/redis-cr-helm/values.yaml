@@ -8,11 +8,16 @@ image:
 
 # Replication settings
 replica:
-  replicaCount: 1
+  replicaCount: 3
 
 # exporter
 exporter:
   enabled: true
+
+# grafana
+grafana:
+  enabled: true
+  labelForReloader: grafana_dashboard
 
 # auth
 auth:
