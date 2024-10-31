@@ -6,3 +6,7 @@ description: A Warpper of Helm chart for the Spotahome Redis Operator
 name: my-redis-operator
 version: 1.0.0
 kubeVersion: ">=1.21.0-0"
+dependencies:
+- name: redis-operator
+  version: 3.3.0
+  repository: https://github.com/spotahome/redis-operator
