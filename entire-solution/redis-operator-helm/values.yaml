@@ -2,3 +2,8 @@
 grafana:
   enabled: true
   labelForReloader: grafana_dashboard
+
+# SecurityContext Override
+redis-operator:
+  securityContext:
+    readOnlyRootFilesystem: true

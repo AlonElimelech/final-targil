@@ -44,7 +44,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "in check and heal process, if any of the sentinel checks are failing, it is reported here.\n\n```\nIP of sentinel instance (if applicable) -> Check / Operation performed that failed\n```",
       "fieldConfig": {
@@ -188,7 +188,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "in check and heal process, if any of the redis checks are failing, it is reported here.\n\n```\nIP of redis instance (if applicable) -> Check / Operation performed\n```",
       "fieldConfig": {
@@ -356,7 +356,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "in check and heal process, steps that have been successfully executed are reported here\n\nin check and heal process, steps that have been successfully executed are reported here\n\nreading the legend\n```\nIP of sentinel instance (if applicable) -> Check / Operation performed\n```",
       "fieldConfig": {
@@ -499,7 +499,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "in check and heal process, steps that have been successfully executed are reported here\n\nreading the legend\n```\nIP of redis instance (if applicable) -> Check / Operation performed\n```\n\n```",
       "fieldConfig": {
@@ -642,7 +642,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "kubernetes API calls that resulted in failure.\n\nreading the legend:\n```\nnamespace -> kind -> resource -> operation -> error\n```",
       "fieldConfig": {
@@ -742,7 +742,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "Reading the legend\n```\nREDIS/SENTINEL -> IP address -> Operation Performed -> Error Encounted\n```",
       "fieldConfig": {
@@ -841,7 +841,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "kubernetes API calls made\n\nreading the legend:\n```\nnamespace -> kind -> resource -> operation -> status\n```",
       "fieldConfig": {
@@ -940,7 +940,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "redis / sentinel calls made per second.\n\nreading the legend:\n```\nREDIS/SENTINEL -> IP address -> Operation Performed -> Status\n```",
       "fieldConfig": {
@@ -1052,7 +1052,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "Time spent by an event waiting in queue to be picked up by workers",
       "fieldConfig": {
@@ -1135,7 +1135,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "FoDDSbR7k"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "rate(kooper_controller_event_in_queue_duration_seconds_sum{}[$bucket_interval]) / rate(kooper_controller_event_in_queue_duration_seconds_count{}[$bucket_interval])",
@@ -1150,7 +1150,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "Time spent by workers to process an event.",
       "fieldConfig": {
@@ -1233,7 +1233,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "FoDDSbR7k"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "(rate(kooper_controller_processed_event_duration_seconds_sum{}[$bucket_interval]) / rate(kooper_controller_processed_event_duration_seconds_count{}[$bucket_interval]))",
@@ -1248,7 +1248,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "Number of events waiting in queue in an average , per second",
       "fieldConfig": {
@@ -1332,7 +1332,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "FoDDSbR7k"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum by (requeue, pod) (rate(kooper_controller_queued_events_total{}[$bucket_interval]))",
@@ -1347,7 +1347,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "size of the queue",
       "fieldConfig": {
@@ -1431,7 +1431,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "FoDDSbR7k"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "kooper_controller_event_queue_length{}",
@@ -1446,7 +1446,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "A histogram of time spent by an event waiting in queue",
       "fieldConfig": {
@@ -1528,7 +1528,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "FoDDSbR7k"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.95, sum(rate(kooper_controller_event_in_queue_duration_seconds_bucket{}[$bucket_interval])) by (le))",
@@ -1543,7 +1543,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "description": "A histogram of time spent by worker to process an event",
       "fieldConfig": {
@@ -1625,7 +1625,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "FoDDSbR7k"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(1, sum(rate(kooper_controller_processed_event_duration_seconds_bucket{}[2m])) by (le))",
@@ -1653,7 +1653,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1752,7 +1752,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1851,7 +1851,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1951,7 +1951,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2076,7 +2076,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2201,7 +2201,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2301,7 +2301,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2394,7 +2394,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2493,7 +2493,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "FoDDSbR7k"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2621,7 +2621,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "FoDDSbR7k"
+          "uid": "prometheus"
         },
         "definition": "label_values(redis_operator_controller_ensure_resource_total{resource_name=~\".*\"}, name)",
         "hide": 2,
@@ -2647,7 +2647,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "FoDDSbR7k"
+          "uid": "prometheus"
         },
         "definition": "label_values(redis_operator_controller_ensure_resource_total{resource_name=~\"$tenant\"}, namespace)",
         "hide": 2,
@@ -2673,7 +2673,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "FoDDSbR7k"
+          "uid": "prometheus"
         },
         "definition": "label_values(kube_pod_info{created_by_kind=\"StatefulSet\", created_by_name=~\"rfr-$tenant\"}, pod_ip)",
         "hide": 2,
@@ -2700,7 +2700,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "FoDDSbR7k"
+          "uid": "prometheus"
         },
         "definition": "label_values(kube_pod_info{ created_by_kind=\"ReplicaSet\", created_by_name=~\"rfs-$tenant-[0-9a-z]*\"}, pod_ip)",
         "hide": 2,
@@ -2784,7 +2784,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "FoDDSbR7k"
+          "uid": "prometheus"
         },
         "definition": "label_values(redis_operator_controller_cluster_ok, name)",
         "hide": 0,
