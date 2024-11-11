@@ -3,25 +3,32 @@ kind: ApplicationSet
 metadata:
   name: infra-appset
 spec:
+  goTemplate: true
   generators:
     - git:
         repoURL: "https://github.com/AlonElimelech/final-targil.git"
         revision: HEAD  # You can use a branch, tag, or commit SHA
         directories:
-          - path: "definition-infra-tools/*"  # Path pattern where ArgoCD will look for subdirectories
+          - path: "entire-solution/definition-infra-tools/*"  # Path pattern where ArgoCD will look for subdirectories
   template:
     metadata:
-      name: "{{path.basename}}"  # Dynamically name each application based on the directory name
+      name: "{{.path.basename}}"  # Dynamically name each application based on the directory name
     spec:
       project: default  # You can specify a project if you have ArgoCD Projects
-      source:
-        repoURL: "https://github.com/AlonElimelech/final-targil.git"
-        targetRevision: "{{revision}}"  # You can use a dynamic revision (e.g., branch)
-        path: "{{path}}"  # Dynamically set the path to the subdirectory in the Git repo
+      sources:
+        - repoURL: "https://github.com/AlonElimelech/final-targil.git"
+          targetRevision: HEAD  # You can use a dynamic revision (e.g., branch)
+          path: "{{.path.path}}"  # Dynamically set the path to the subdirectory in the Git repo
+          helm:
+            valueFiles:
+              - "$values/entire-solution/metadata-infra-tools/{{.path.basename}}/values.yaml"
+        - repoURL: 'https://github.com/AlonElimelech/final-targil.git'
+          targetRevision: HEAD
+          ref: values
       destination:
         server: "https://kubernetes.default.svc"  # Default Kubernetes cluster
-        namespace: "{{path.basename}}"  # Dynamically set the namespace to the directory name
+        namespace: "{{.namespace}}"  # Dynamically set the namespace to the directory name
       syncPolicy:
         automated:
-          prune: true
-          selfHeal: true
+          prune: false
+          selfHeal: false
