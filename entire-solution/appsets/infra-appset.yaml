@@ -27,3 +27,4 @@ spec:
         automated:
           prune: false
           selfHeal: false
+    # maybe we need to add server side 
