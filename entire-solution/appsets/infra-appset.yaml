@@ -27,4 +27,5 @@ spec:
         automated:
           prune: false
           selfHeal: false
+      createNamespace: true  # Create the namespace if it doesn't exist
     # maybe we need to add server side 
