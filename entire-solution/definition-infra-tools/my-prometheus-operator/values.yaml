@@ -1,0 +1,11 @@
+# grafana
+grafana:
+  enabled: false
+  labelForReloader: grafana_dashboard
+
+kube-prometheus-stack:
+  prometheus:
+    service:
+      type: NodePort
+  grafana:
+    enabled: false
