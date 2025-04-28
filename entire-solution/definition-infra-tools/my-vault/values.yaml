@@ -1,0 +1,7 @@
+vault:
+  ui:
+    enabled: true
+    serviceType: NodePort
+  server:
+    dev:
+      enabled: true

@@ -1,0 +1,12 @@
+apiVersion: v2
+name: my-vault
+description: A  wrapper Helm chart for Kubernetes vault deployment
+# This chart deploys the Kubernetes External Secrets operator and its dependencies.
+# It is a wrapper around the upstream chart to simplify the installation process.
+type: application
+version: 0.1.0
+appVersion: "1.19.0"
+dependencies:
+- name: vault
+  version: 0.30.0
+  #repository: https://github.com/hashicorp/vault-helm

@@ -9,3 +9,6 @@ kube-prometheus-stack:
       type: NodePort
   grafana:
     enabled: false
+  prometheus-node-exporter:
+    hostRootFsMount:
+      enabled: false
