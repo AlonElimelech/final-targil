@@ -1,10 +1,12 @@
 apiVersion: v2
-name: my-argocd
-description: A Helm chart for Kubernetes
+name: my-external-secret
+description: A  wrapper Helm chart for Kubernetes External Secrets operator
+# This chart deploys the Kubernetes External Secrets operator and its dependencies.
+# It is a wrapper around the upstream chart to simplify the installation process.
 type: application
 version: 0.1.0
 appVersion: "1.16.0"
 dependencies:
-- name: argo-cd
-  version: 7.6.12
-  repository: https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+- name: external-secret
+  version: 1.16.0
+  #repository: https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
