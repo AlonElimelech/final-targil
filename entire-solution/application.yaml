@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/AlonElimelech/final-targil.git
     targetRevision: HEAD
-    path: 'entire-solution/appsets/infra-appset.yaml'
+    path: 'entire-solution/appsets/infra'
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
